@@ -1,8 +1,3 @@
-provider "github" {
-  version    = "~> 2.9"
-  individual = true
-}
-
 resource "github_user_ssh_key" "personal_ssh" {
   title = "Personal"
   key   = file("./files/personal_public_ssh.key")
