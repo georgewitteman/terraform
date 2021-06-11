@@ -57,6 +57,7 @@ resource "dnsimple_record" "dkim" {
 }
 
 resource "dnsimple_record" "dmarc" {
+  count  = var.dmarc == "" ? 0 : 1
   domain = var.domain
   name   = "_dmarc"
   type   = "TXT"

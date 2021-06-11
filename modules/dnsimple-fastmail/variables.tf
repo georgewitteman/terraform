@@ -6,6 +6,7 @@ variable "domain" {
 variable "dmarc" {
   type        = string
   description = "The DMARC record from Postmark"
+  default     = ""
 }
 
 variable "ttl" {
