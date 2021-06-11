@@ -2,8 +2,8 @@ terraform {
   required_providers {
     dnsimple = {
       source  = "dnsimple/dnsimple"
-      version = "~> 0.5.1"
+      version = "~> 0.5"
     }
   }
-  required_version = ">= 0.13"
+  required_version = ">= 1"
 }

@@ -1,6 +1,6 @@
 resource "dnsimple_record" "alias-record-root" {
   domain = var.domain
-  name   = "@"
+  name   = ""
   value  = var.gh_pages_url
   type   = "ALIAS"
   ttl    = 60
