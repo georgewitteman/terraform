@@ -42,7 +42,7 @@ resource "dnsimple_record" "spf" {
   type   = "TXT"
   ttl    = var.ttl
 
-  value = "v=spf1 include:spf.messagingengine.com ?all"
+  value = "v=spf1 include:spf.messagingengine.com -all"
 }
 
 resource "dnsimple_record" "dkim" {
