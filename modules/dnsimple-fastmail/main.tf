@@ -56,14 +56,13 @@ resource "dnsimple_record" "dkim" {
   value = "${element(local.dkim_hosts, count.index)}.${var.domain}.dkim.fmhosted.com"
 }
 
-resource "dnsimple_record" "dmarc" {
-  count  = var.dmarc == "" ? 0 : 1
+resource "dnsimple_record" "valimail_dmarc" {
   domain = var.domain
   name   = "_dmarc"
-  type   = "TXT"
+  type   = "NS"
   ttl    = var.ttl
 
-  value = var.dmarc
+  value = "ns.vali.email."
 }
 
 resource "dnsimple_record" "srv_submission" {
