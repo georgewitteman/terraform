@@ -42,7 +42,7 @@ resource "dnsimple_record" "spf" {
   type   = "TXT"
   ttl    = var.ttl
 
-  value = "v=spf1 include:spf.messagingengine.com ?all"
+  value = "v=spf1 include:%%{i}._ip.%%{h}._ehlo.%%{d}._spf.vali.email ~all"
 }
 
 resource "dnsimple_record" "dkim" {
@@ -54,6 +54,15 @@ resource "dnsimple_record" "dkim" {
   ttl    = var.ttl
 
   value = "${element(local.dkim_hosts, count.index)}.${var.domain}.dkim.fmhosted.com"
+}
+
+resource "dnsimple_record" "valimail_dkim" {
+  domain = var.domain
+  name   = "_domainkey"
+  type   = "NS"
+  ttl    = var.ttl
+
+  value = "ns.vali.email."
 }
 
 resource "dnsimple_record" "valimail_dmarc" {
