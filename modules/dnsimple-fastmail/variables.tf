@@ -14,3 +14,9 @@ variable "ttl" {
   description = "TTL for records"
   default     = 60 * 5
 }
+
+variable "a_records" {
+  type        = string
+  description = "Whether to include the A records or not"
+  default     = "false"
+}

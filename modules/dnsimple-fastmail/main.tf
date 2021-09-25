@@ -3,6 +3,26 @@ locals {
   mx_hosts   = ["", "*", "mail"]
 }
 
+resource "dnsimple_record" "a" {
+  count  = var.a_records == "true" ? 1 : 0
+  domain = var.domain
+  name   = ""
+  type   = "ALIAS"
+  ttl    = var.ttl
+
+  value = "web.messagingengine.com"
+}
+
+resource "dnsimple_record" "a_wildcard" {
+  count  = var.a_records == "true" ? 1 : 0
+  domain = var.domain
+  name   = "*"
+  type   = "ALIAS"
+  ttl    = var.ttl
+
+  value = "web.messagingengine.com"
+}
+
 resource "dnsimple_record" "mail" {
   domain = var.domain
   name   = "mail"
