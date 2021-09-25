@@ -16,3 +16,9 @@ module "dnsimple_github_pages" {
   domain       = "georgewitteman.com"
   gh_pages_url = "georgewitteman.github.io"
 }
+
+module "dnsimple_404_witteman_me" {
+  source    = "./modules/dnsimple-404"
+  domain    = "witteman.me"
+  subdomain = "404"
+}
