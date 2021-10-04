@@ -1,7 +1,7 @@
 module "dnsimple_fastmail_georgewitteman_com" {
   source = "./modules/dnsimple-fastmail"
   domain = "georgewitteman.com"
-  dmarc  = "v=DMARC1; p=quarantine; sp=quarantine; aspf=r; pct=100; rua=mailto:re+kwgr6yysiwt@dmarc.postmarkapp.com,mailto:dmarc+rua@witteman.me; ruf=mailto:dmarc+ruf@witteman.me; fo=1:d:s"
+  dmarc  = "v=DMARC1; p=quarantine; sp=quarantine; aspf=r; pct=100; rua=mailto:re+kwgr6yysiwt@dmarc.postmarkapp.com,mailto:dmarc+rua@georgewitteman.com; ruf=mailto:dmarc+ruf@georgewitteman.com; fo=1:d:s"
 }
 
 module "dnsimple_fastmail_witteman_me" {
