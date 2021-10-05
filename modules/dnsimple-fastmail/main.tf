@@ -1,6 +1,6 @@
 locals {
   dkim_hosts = ["fm1", "fm2", "fm3"]
-  mx_hosts   = ["", "mail"]
+  mx_hosts   = [""]
   # mx_hosts   = ["", "*", "mail"]
 }
 
