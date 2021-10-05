@@ -4,6 +4,14 @@ module "dnsimple_fastmail_georgewitteman_com" {
   dmarc  = "v=DMARC1; p=quarantine; sp=quarantine; aspf=r; pct=100; rua=mailto:re+kwgr6yysiwt@dmarc.postmarkapp.com,mailto:dmarc+rua@georgewitteman.com; ruf=mailto:dmarc+ruf@georgewitteman.com; fo=1:d:s"
 }
 
+resource "dnsimple_zone_record" "google_postmaster_verification_georgewitteman_com" {
+  zone_name = "georgewitteman.com"
+  name      = ""
+  type      = "TXT"
+  ttl       = 3600
+  value     = "google-site-verification=n-eQPTxgyqAyfJDuPf4xRrL9zZUSGyhZ_PG6wrp7Lic"
+}
+
 module "dnsimple_fastmail_witteman_me" {
   source = "./modules/dnsimple-fastmail"
   domain = "witteman.me"
