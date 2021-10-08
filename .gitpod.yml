@@ -1,4 +1,8 @@
-# Commands to start on workspace startup
 tasks:
   - name: Terraform
     init: sh ./gitpod-setup.sh
+
+vscode:
+  extensions:
+    - hashicorp.terraform
+    - redhat.vscode-yaml
