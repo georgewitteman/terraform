@@ -26,6 +26,14 @@ resource "dnsimple_zone_record" "google_postmaster_verification" {
   value     = "google-site-verification=NW7ujmNyY-X8v_VOlYzD3CJGqDD8dsoG8RTgGPMNKtk"
 }
 
+resource "dnsimple_zone_record" "github_redirect" {
+  zone_name = "witteman.me"
+  name      = "www"
+  type      = "URL"
+  ttl       = 300
+  value     = "https://github.com/georgewitteman"
+}
+
 module "dnsimple_github_pages" {
   source       = "./modules/dnsimple-github-pages"
   domain       = "georgewitteman.com"
