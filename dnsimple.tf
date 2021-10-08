@@ -1,3 +1,11 @@
+resource "dnsimple_domain" "georgewitteman_com" {
+  name = "georgewitteman.com"
+}
+
+resource "dnsimple_domain" "witteman_me" {
+  name = "witteman.me"
+}
+
 module "dnsimple_fastmail_georgewitteman_com" {
   source = "./modules/dnsimple-fastmail"
   domain = "georgewitteman.com"
