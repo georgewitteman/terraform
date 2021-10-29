@@ -26,6 +26,14 @@ resource "dnsimple_zone_record" "google_postmaster_verification" {
   value     = "google-site-verification=NW7ujmNyY-X8v_VOlYzD3CJGqDD8dsoG8RTgGPMNKtk"
 }
 
+resource "dnsimple_zone_record" "synology_nas" {
+  zone_name = "witteman.me"
+  name      = "home"
+  type      = "ALIAS"
+  ttl       = 3600
+  value     = "georgewitteman.synology.me"
+}
+
 resource "dnsimple_zone_record" "github_redirect" {
   zone_name = "witteman.me"
   name      = "www"
