@@ -1,4 +1,4 @@
 # Commands to start on workspace startup
 tasks:
   - name: Terraform
-    command: sh ./gitpod-setup.sh
+    before: sh ./gitpod-setup.sh
