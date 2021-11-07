@@ -16,6 +16,13 @@ module "dnsimple_fastmail_wtmn_net" {
   dmarc  = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+lcidla2subz@dmarc.postmarkapp.com"
 }
 
+module "dnsimple_fastmail_bottlesend_com" {
+  source    = "./modules/dnsimple-fastmail"
+  domain    = "bottlesend.com"
+  dmarc     = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+vhxqknpdwt4@dmarc.postmarkapp.com"
+  a_records = "true"
+}
+
 resource "dnsimple_zone_record" "google_postmaster_verification_georgewitteman_com" {
   zone_name = "georgewitteman.com"
   name      = ""
