@@ -16,11 +16,10 @@ module "dnsimple_fastmail_wtmn_net" {
   dmarc  = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+lcidla2subz@dmarc.postmarkapp.com"
 }
 
-module "dnsimple_fastmail_bottlesend_com" {
-  source    = "./modules/dnsimple-fastmail"
-  domain    = "bottlesend.com"
-  dmarc     = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+vhxqknpdwt4@dmarc.postmarkapp.com"
-  a_records = "true"
+module "dnsimple_fastmail_maildrip_net" {
+  source = "./modules/dnsimple-fastmail"
+  domain = "maildrip.net"
+  dmarc  = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+vinvgvmggle@dmarc.postmarkapp.com"
 }
 
 resource "dnsimple_zone_record" "google_postmaster_verification_georgewitteman_com" {
@@ -67,20 +66,4 @@ module "dnsimple_github_pages" {
   source       = "./modules/dnsimple-github-pages"
   domain       = "georgewitteman.com"
   gh_pages_url = "georgewitteman.github.io"
-}
-
-resource "dnsimple_zone_record" "bottlesend_redirect" {
-  zone_name = "bottlsend.com"
-  name      = ""
-  type      = "URL"
-  ttl       = 300
-  value     = "https://www.bottlesend.com"
-}
-
-resource "dnsimple_zone_record" "www_bottlesend_redirect" {
-  zone_name = "bottlsend.com"
-  name      = "www"
-  type      = "URL"
-  ttl       = 300
-  value     = "https://www.bottlesend.com"
 }
