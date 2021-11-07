@@ -68,3 +68,19 @@ module "dnsimple_github_pages" {
   domain       = "georgewitteman.com"
   gh_pages_url = "georgewitteman.github.io"
 }
+
+resource "dnsimple_zone_record" "bottlesend_redirect" {
+  zone_name = "bottlsend.com"
+  name      = ""
+  type      = "URL"
+  ttl       = 300
+  value     = "https://www.bottlesend.com"
+}
+
+resource "dnsimple_zone_record" "www_bottlesend_redirect" {
+  zone_name = "bottlsend.com"
+  name      = "www"
+  type      = "URL"
+  ttl       = 300
+  value     = "https://www.bottlesend.com"
+}
