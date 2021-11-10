@@ -67,3 +67,8 @@ module "dnsimple_github_pages" {
   domain       = "georgewitteman.com"
   gh_pages_url = "georgewitteman.github.io"
 }
+
+module "dnsimple_short_io" {
+  source = "./modules/dnsimple-short-io"
+  domain = "wtmn.link"
+}
