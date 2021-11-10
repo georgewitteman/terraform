@@ -72,3 +72,19 @@ module "dnsimple_short_io" {
   source = "./modules/dnsimple-short-io"
   domain = "wtmn.link"
 }
+
+resource "dnsimple_zone_record" "wtmn_email_redirect" {
+  zone_name = "wtmn.email"
+  name      = ""
+  type      = "URL"
+  ttl       = 300
+  value     = "https://www.fastmail.com/mail/Inbox/?u=3a3140dd"
+}
+
+resource "dnsimple_zone_record" "witteman_email_redirect" {
+  zone_name = "witteman.email"
+  name      = ""
+  type      = "URL"
+  ttl       = 300
+  value     = "https://www.fastmail.com/mail/Inbox/?u=3a3140dd"
+}
