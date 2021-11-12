@@ -38,6 +38,15 @@ resource "dnsimple_zone_record" "home_wtmn_net" {
   value     = "georgewitteman.synology.me"
 }
 
+resource "dnsimple_zone_record" "files_wtmn_net_alias" {
+  zone_name = "wtmn.net"
+  name      = "files"
+  type      = "ALIAS"
+  ttl       = 300
+
+  value = "web.messagingengine.com"
+}
+
 resource "dnsimple_zone_record" "google_postmaster_verification" {
   zone_name = "witteman.me"
   name      = ""
