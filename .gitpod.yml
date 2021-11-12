@@ -2,5 +2,5 @@
 tasks:
   - name: Install terraform
     before: sh ./gitpod-setup.sh
-  - name: Install dotfiles
-    before: sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply georgewitteman
+  # - name: Install dotfiles
+  #   before: sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply georgewitteman
