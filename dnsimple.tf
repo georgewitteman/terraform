@@ -7,7 +7,7 @@ module "dnsimple_fastmail_georgewitteman_com" {
 module "dnsimple_fastmail_witteman_me" {
   source = "./modules/dnsimple-fastmail"
   domain = "witteman.me"
-  dmarc  = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+etpsv9gfdep@dmarc.postmarkapp.com"
+  dmarc  = "v=DMARC1; p=quarantine; pct=100; rua=mailto:re+etpsv9gfdep@dmarc.postmarkapp.com"
 }
 
 module "dnsimple_fastmail_wtmn_net" {
@@ -45,6 +45,22 @@ resource "dnsimple_zone_record" "files_wtmn_net_alias" {
   ttl       = 300
 
   value = "web.messagingengine.com"
+}
+
+resource "dnsimple_zone_record" "pm_bounces_witteman_me" {
+  zone_name = "witteman.me"
+  name      = "pm-bounces"
+  type      = "CNAME"
+  ttl       = 300
+  value     = "pm.mtasv.net"
+}
+
+resource "dnsimple_zone_record" "postmark_domainkey_witteman_me" {
+  zone_name = "witteman.me"
+  name      = "20211105042214pm._domainkey"
+  type      = "TXT"
+  ttl       = 300
+  value     = "k=rsa;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCGVI8eV/hxWB+9Trd73YIdscUfRoTdQr8Tt5pBKVDgDVUqhHyq8vlVpB1m5jKDAF4gNLCC9LC1Cjrpy3uOrCoDSN9o+dBWI2EWnHd8w4+Kbux6UQOlIsjfQvurIhoVvieNPzpVIuDs3KMYNOrUnjXgu9/se/PrbZIVt0MhIOsE3QIDAQAB"
 }
 
 resource "dnsimple_zone_record" "google_postmaster_verification" {
