@@ -113,3 +113,27 @@ resource "dnsimple_zone_record" "witteman_email_redirect" {
   ttl       = 300
   value     = "https://www.fastmail.com/mail/Inbox/?u=3a3140dd"
 }
+
+resource "dnsimple_zone_record" "synology_help_redirect" {
+  zone_name = "synology.help"
+  name      = ""
+  type      = "URL"
+  ttl       = 300
+  value     = "https://kb.synology.com/en-us"
+}
+
+resource "dnsimple_zone_record" "culturedcode_help_redirect" {
+  zone_name = "culturedcode.help"
+  name      = ""
+  type      = "URL"
+  ttl       = 300
+  value     = "https://culturedcode.com/things/support/"
+}
+
+resource "dnsimple_zone_record" "culturedcode_blog_redirect" {
+  zone_name = "culturedcode.blog"
+  name      = ""
+  type      = "URL"
+  ttl       = 300
+  value     = "https://culturedcode.com/things/blog/"
+}
