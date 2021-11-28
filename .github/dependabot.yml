@@ -1,0 +1,22 @@
+version: 2
+
+updates:
+ - package-ecosystem: "terraform"
+   directory: "/"
+   schedule:
+     interval: "daily"
+
+ - package-ecosystem: "terraform"
+   directory: "/modules/dnsimple-fastmail"
+   schedule:
+     interval: "daily"
+
+ - package-ecosystem: "terraform"
+   directory: "/modules/dnsimple-github-pages"
+   schedule:
+     interval: "daily"
+
+ - package-ecosystem: "terraform"
+   directory: "/modules/dnsimple-short-io"
+   schedule:
+     interval: "daily"
