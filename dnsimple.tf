@@ -137,3 +137,9 @@ resource "dnsimple_zone_record" "culturedcode_blog_redirect" {
   ttl       = 300
   value     = "https://culturedcode.com/things/blog/"
 }
+
+module "dnsimple_squarespace_marcywitteman_com" {
+  source       = "./modules/dnsimple-squarespace"
+  domain       = "marcywitteman.com"
+  verify_cname = "ygcg8lysbebsftxsez6l"
+}
