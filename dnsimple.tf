@@ -13,13 +13,13 @@ module "dnsimple_fastmail_witteman_me" {
 module "dnsimple_fastmail_wtmn_net" {
   source = "./modules/dnsimple-fastmail"
   domain = "wtmn.net"
-  dmarc  = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+lcidla2subz@dmarc.postmarkapp.com; ruf=mailto:ruf@witteman.me"
+  dmarc  = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+lcidla2subz@dmarc.postmarkapp.com; ruf=mailto:george+ruf@witteman.me"
 }
 
-module "dnsimple_fastmail_maildrip_net" {
+module "dnsimple_fastmail_georgewitteman_me" {
   source = "./modules/dnsimple-fastmail"
-  domain = "maildrip.net"
-  dmarc  = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+vinvgvmggle@dmarc.postmarkapp.com"
+  domain = "georgewitteman.me"
+  dmarc  = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+zcrwq1j87mr@dmarc.postmarkapp.com"
 }
 
 resource "dnsimple_zone_record" "google_postmaster_verification_georgewitteman_com" {
