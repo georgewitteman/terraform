@@ -4,17 +4,27 @@ provider "aws" {
 
 resource "aws_s3_bucket" "log_bucket" {
   bucket = "georgewitteman-terraform-logs"
+}
+
+resource "aws_s3_bucket_acl" "log_bucket" {
+  bucket = aws_s3_bucket.log_bucket.id
   acl    = "log-delivery-write"
+}
 
-  versioning {
-    enabled = true
+resource "aws_s3_bucket_versioning" "log_bucket" {
+  bucket = aws_s3_bucket.log_bucket.id
+
+  versioning_configuration {
+    status = "Enabled"
   }
+}
 
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
+resource "aws_s3_bucket_server_side_encryption_configuration" "log_bucket" {
+  bucket = aws_s3_bucket.log_bucket.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
     }
   }
 }
@@ -30,24 +40,31 @@ resource "aws_s3_bucket_public_access_block" "log_bucket" {
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "georgewitteman-terraform-state"
 
-  logging {
-    target_bucket = aws_s3_bucket.log_bucket.id
-    target_prefix = "log/"
-  }
-
   lifecycle {
     prevent_destroy = true
   }
+}
 
-  versioning {
-    enabled = true
+resource "aws_s3_bucket_logging" "terraform_state" {
+  bucket        = aws_s3_bucket.terraform_state.id
+  target_bucket = aws_s3_bucket.log_bucket.id
+  target_prefix = "log/"
+}
+
+resource "aws_s3_bucket_versioning" "terraform_state" {
+  bucket = aws_s3_bucket.terraform_state.id
+
+  versioning_configuration {
+    status = "Enabled"
   }
+}
 
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
+resource "aws_s3_bucket_server_side_encryption_configuration" "terraform_state" {
+  bucket = aws_s3_bucket.terraform_state.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
     }
   }
 }
