@@ -19,7 +19,7 @@ module "dnsimple_fastmail_witteman_me" {
 module "dnsimple_fastmail_wtmn_net" {
   source = "./modules/dnsimple-fastmail"
   domain = "wtmn.net"
-  dmarc  = "v=DMARC1; p=reject; pct=100; rua=mailto:re+lcidla2subz@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email;"
+  dmarc  = "v=DMARC1; p=quarantine; pct=100; rua=mailto:re+lcidla2subz@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email;"
 }
 
 resource "dnsimple_zone_record" "google_postmaster_verification_georgewitteman_com" {
