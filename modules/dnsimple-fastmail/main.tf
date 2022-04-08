@@ -87,6 +87,15 @@ resource "dnsimple_zone_record" "dmarc" {
   value = var.dmarc
 }
 
+resource "dnsimple_zone_record" "bimi" {
+  zone_name = var.domain
+  name      = "default._bimi"
+  type      = "TXT"
+  ttl       = var.ttl
+
+  value = "v=BIMI1; l=https://www.georgewitteman.com/files/bimi-svg-tiny-12-ps.svg;"
+}
+
 resource "dnsimple_zone_record" "srv_submission" {
   zone_name = var.domain
   name      = "_submission._tcp"
