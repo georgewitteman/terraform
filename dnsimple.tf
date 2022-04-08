@@ -1,7 +1,7 @@
 module "dnsimple_fastmail_georgewitteman_com" {
   source = "./modules/dnsimple-fastmail"
   domain = "georgewitteman.com"
-  dmarc  = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+kwgr6yysiwt@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email;"
+  dmarc  = "v=DMARC1; p=quarantine; pct=100; rua=mailto:re+kwgr6yysiwt@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email;"
 }
 
 module "dnsimple_fastmail_witteman_me" {
@@ -13,13 +13,13 @@ module "dnsimple_fastmail_witteman_me" {
 module "dnsimple_fastmail_wtmn_net" {
   source = "./modules/dnsimple-fastmail"
   domain = "wtmn.net"
-  dmarc  = "v=DMARC1; p=reject; aspf=s; adkim=s; pct=100; rua=mailto:re+lcidla2subz@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email; ruf=mailto:george@witteman.me;"
+  dmarc  = "v=DMARC1; p=reject; pct=100; rua=mailto:re+lcidla2subz@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email;"
 }
 
 module "dnsimple_fastmail_georgewitteman_me" {
   source = "./modules/dnsimple-fastmail"
   domain = "georgewitteman.me"
-  dmarc  = "v=DMARC1; p=quarantine; aspf=s; adkim=s; pct=100; rua=mailto:re+zcrwq1j87mr@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email;"
+  dmarc  = "v=DMARC1; p=quarantine; pct=100; rua=mailto:re+zcrwq1j87mr@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email;"
 }
 
 resource "dnsimple_zone_record" "google_postmaster_verification_georgewitteman_com" {
