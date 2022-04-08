@@ -13,7 +13,7 @@ module "dnsimple_fastmail_witteman_me" {
 module "dnsimple_fastmail_wtmn_net" {
   source = "./modules/dnsimple-fastmail"
   domain = "wtmn.net"
-  dmarc  = "v=DMARC1; p=reject; aspf=s; adkim=s; pct=100; rua=mailto:re+lcidla2subz@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email; ruf=mailto:george@witteman.me"
+  dmarc  = "v=DMARC1; p=reject; aspf=s; adkim=s; pct=100; rua=mailto:re+lcidla2subz@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email; ruf=mailto:george@witteman.me;"
 }
 
 module "dnsimple_fastmail_georgewitteman_me" {
