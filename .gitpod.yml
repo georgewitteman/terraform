@@ -1,8 +1,15 @@
 tasks:
-  - name: Install terraform
-    before: sh ./gitpod-setup.sh
-  # - name: Install dotfiles
-  #   before: sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply georgewitteman
+  - name: Install Terraform
+    init: |
+      set -o errexit
+      set -o xtrace
+      eval $(command gp env --export)
+      sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+      curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+      sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+      sudo apt update
+      sudo apt install --yes terraform dnsutils
+      terraform init
 
 vscode:
   extensions:
