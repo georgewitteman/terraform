@@ -19,12 +19,17 @@ resource "aws_s3_bucket_versioning" "log_bucket" {
   }
 }
 
+resource "aws_kms_key" "primary_kms_key" {
+  enable_key_rotation = true
+}
+
 resource "aws_s3_bucket_server_side_encryption_configuration" "log_bucket" {
   bucket = aws_s3_bucket.log_bucket.id
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
+      kms_master_key_id = aws_kms_key.primary_kms_key.arn
+      sse_algorithm     = "AES256"
     }
   }
 }
@@ -64,7 +69,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "terraform_state" 
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
+      kms_master_key_id = aws_kms_key.primary_kms_key.arn
+      sse_algorithm     = "AES256"
     }
   }
 }
