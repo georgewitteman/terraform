@@ -1,6 +1,9 @@
-# Commands to start on workspace startup
 tasks:
   - name: Install terraform
     before: sh ./gitpod-setup.sh
   # - name: Install dotfiles
   #   before: sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply georgewitteman
+
+vscode:
+  extensions:
+    - hashicorp.terraform
