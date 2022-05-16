@@ -4,8 +4,6 @@ image:
 tasks:
   - name: Initialize Terraform
     command: |
-      set -o errexit
-      set -o xtrace
       terraform init
       terraform plan
 
