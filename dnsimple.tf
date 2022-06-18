@@ -38,6 +38,14 @@ resource "dnsimple_zone_record" "home_wtmn_net" {
   value     = "georgewitteman.synology.me"
 }
 
+resource "dnsimple_zone_record" "synology_nas_wtmn_net" {
+  zone_name = "wtmn.net"
+  name      = "synology-nas"
+  type      = "A"
+  ttl       = 60
+  value     = "100.65.47.34"
+}
+
 resource "dnsimple_zone_record" "files_wtmn_net_alias" {
   zone_name = "wtmn.net"
   name      = "files"
