@@ -30,14 +30,6 @@ resource "dnsimple_zone_record" "google_postmaster_verification_georgewitteman_c
   value     = "google-site-verification=n-eQPTxgyqAyfJDuPf4xRrL9zZUSGyhZ_PG6wrp7Lic"
 }
 
-resource "dnsimple_zone_record" "home_wtmn_net" {
-  zone_name = "wtmn.net"
-  name      = "home"
-  type      = "ALIAS"
-  ttl       = 240
-  value     = "georgewitteman.synology.me"
-}
-
 resource "dnsimple_zone_record" "synology_nas_wtmn_net" {
   zone_name = "wtmn.net"
   name      = "synology-nas"
