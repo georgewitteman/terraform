@@ -5,7 +5,7 @@ tasks:
   - name: Initialize Terraform
     command: |
       terraform init
-      terraform plan
+      terraform plan && exit 0
 
 vscode:
   extensions:
