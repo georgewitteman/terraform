@@ -1,4 +1,4 @@
-name: Terrafform
+name: Terraform
 
 "on":
   pull_request:
@@ -6,7 +6,7 @@ name: Terrafform
 
 jobs:
   terraform:
-    name: 'Terraform'
+    name: Terraform
     runs-on: ubuntu-latest
     concurrency: tf_state_lock
     env:
