@@ -1,4 +1,4 @@
-name: Terrafform Plan
+name: Terrafform
 
 "on":
   pull_request:
@@ -8,6 +8,7 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
+    concurrency: tf_state_lock
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
