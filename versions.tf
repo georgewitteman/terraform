@@ -8,6 +8,10 @@ terraform {
       source  = "dnsimple/dnsimple"
       version = "~> 0.11"
     }
+    github = {
+      source  = "integrations/github"
+      version = "~> 4.0"
+    }
   }
   required_version = ">= 1"
 }
