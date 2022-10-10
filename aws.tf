@@ -3,7 +3,7 @@ provider "aws" {
 
   default_tags {
     tags = {
-      Repository = "georgewitteman/terraform"
+      Repository = data.github_repository.terraform.full_name
       Terraform  = "true"
     }
   }
