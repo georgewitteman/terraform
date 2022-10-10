@@ -1,5 +1,12 @@
 provider "aws" {
   region = "us-east-1"
+
+  default_tags {
+    tags = {
+      Repository = "georgewitteman/terraform"
+      Terraform  = "true"
+    }
+  }
 }
 
 resource "aws_s3_bucket" "log_bucket" {
