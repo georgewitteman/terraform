@@ -4,32 +4,34 @@ name: Terraform
   pull_request:
   push: { branches: [master] }
 
+permissions:
+  # This is required for requesting the JWT for OIDC
+  id-token: write
+  # Required for actions/checkout
+  contents: read
+  # Required to leave a comment on a pull request
+  pull-requests: write
+
 jobs:
   terraform:
     name: Terraform
     runs-on: ubuntu-latest
     concurrency: tf_state_lock
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
-      CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
       DNSIMPLE_ACCOUNT: ${{ secrets.DNSIMPLE_ACCOUNT }}
       DNSIMPLE_TOKEN: ${{ secrets.DNSIMPLE_TOKEN }}
-      GITHUB_TOKEN: ${{ secrets.GEORGE_GITHUB_TOKEN }}
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubActionsOIDC
           aws-region: us-east-1
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1.2.1
+        uses: hashicorp/setup-terraform@v2
 
       - name: Terraform fmt
         id: fmt
@@ -55,7 +57,6 @@ jobs:
         env:
           PLAN: "${{ steps.plan.outputs.stdout }}"
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const output = `**Terraform Format and Style🖌** \`${{ steps.fmt.outcome }}\`
             **Terraform Initialization ⚙️\** \`${{ steps.init.outcome }}\`
