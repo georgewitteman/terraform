@@ -55,3 +55,10 @@ module "dnsimple_squarespace_marcywitteman_com" {
   domain       = "marcywitteman.com"
   verify_cname = "ygcg8lysbebsftxsez6l"
 }
+
+resource "dnsimple_zone_record" "google_workspace_verification" {
+  zone_name = "witteman.me"
+  name      = ""
+  type      = "TXT"
+  value     = "google-site-verification=Dgy7CxrBlRf1Ucs5YonfE2m99jkPGh2RUl7BrV7EoD0"
+}
