@@ -13,4 +13,5 @@ module "tailscale_relay" {
   authkey              = tailscale_tailnet_key.aws_relay.key
   resource_name_prefix = "main"
   public_subnet_ids    = aws_subnet.public[*].id
+  ssh_key_name         = aws_key_pair.georgewitteman.key_name
 }
