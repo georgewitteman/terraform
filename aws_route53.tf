@@ -1,3 +1,11 @@
+resource "aws_route53domains_registered_domain" "witteman_test_com" {
+  domain_name = aws_route53_zone.witteman_test_com.name
+}
+
+resource "aws_route53_zone" "witteman_test_com" {
+  name = "witteman-test.com"
+}
+
 resource "aws_route53_zone" "georgewitteman_com" {
   name = "georgewitteman.com"
 }
