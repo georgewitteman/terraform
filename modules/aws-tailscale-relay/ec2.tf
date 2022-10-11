@@ -10,11 +10,10 @@ data "aws_ami" "this" {
 }
 
 resource "aws_launch_template" "this" {
-  name                   = "${var.resource_name_prefix}-tailscale-relay"
-  image_id               = data.aws_ami.this.id
-  instance_type          = var.instance_type
-  key_name               = var.ssh_key_name != null ? var.ssh_key_name : null
-  vpc_security_group_ids = [aws_security_group.this.id]
+  name          = "${var.resource_name_prefix}-tailscale-relay"
+  image_id      = data.aws_ami.this.id
+  instance_type = var.instance_type
+  key_name      = var.ssh_key_name != null ? var.ssh_key_name : null
 
   update_default_version = true
 
@@ -35,6 +34,8 @@ resource "aws_launch_template" "this" {
 
   network_interfaces {
     associate_public_ip_address = true
+    delete_on_termination       = true
+    security_groups             = [aws_security_group.this.id]
   }
 
   block_device_mappings {
