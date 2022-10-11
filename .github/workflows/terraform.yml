@@ -16,6 +16,7 @@ jobs:
   terraform:
     name: Terraform
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     concurrency: tf_state_lock
     steps:
       - name: Checkout Repository
