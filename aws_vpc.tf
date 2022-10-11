@@ -1,7 +1,7 @@
 locals {
   # 10.0.4.x = home network
   # 10.1.x.x = main VPC
-  vpc_cidr        = "10.0.0.0/16"
+  vpc_cidr        = "10.1.0.0/16"
   vpc_name        = "main"
   azs             = ["us-east-1a", "us-east-1b"]
   private_subnets = cidrsubnets(cidrsubnet(local.vpc_cidr, 4, 1), 4, 4)
