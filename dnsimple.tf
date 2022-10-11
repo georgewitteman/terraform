@@ -1,3 +1,8 @@
+provider "dnsimple" {
+  token   = var.dnsimple_token
+  account = var.dnsimple_account
+}
+
 module "dnsimple_fastmail_georgewitteman_com" {
   source = "./modules/dnsimple-fastmail"
   domain = "georgewitteman.com"
