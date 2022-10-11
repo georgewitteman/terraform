@@ -28,6 +28,8 @@ resource "aws_launch_template" "vault" {
   key_name               = var.ssh_key_name != null ? var.ssh_key_name : null
   vpc_security_group_ids = [aws_security_group.vault.id]
 
+  update_default_version = true
+
   user_data = base64encode(
     templatefile(
       "${path.module}/templates/install_vault.sh.tpl",
