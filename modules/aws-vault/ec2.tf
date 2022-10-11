@@ -1,5 +1,5 @@
 locals {
-  node_count = 2
+  node_count = 3
 }
 
 data "aws_ami" "ubuntu" {
