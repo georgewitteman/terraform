@@ -1,3 +1,10 @@
+provider "dnsimple" {
+  # Set to true to enable prefetching ZoneRecords when dealing with large
+  # configurations. This is useful when you are dealing with API rate
+  # limitations given your number of zones and zone records.
+  prefetch = true
+}
+
 module "dnsimple_fastmail_georgewitteman_com" {
   source = "./modules/dnsimple-fastmail"
   domain = "georgewitteman.com"

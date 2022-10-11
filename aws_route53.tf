@@ -24,10 +24,26 @@ module "aws_fastmail_georgewitteman_com" {
   dmarc   = "v=DMARC1; p=reject; pct=100; rua=mailto:re+kwgr6yysiwt@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email;"
 }
 
+resource "aws_route53_record" "georgewitteman_com_txt" {
+  zone_id = aws_route53_zone.georgewitteman_com.zone_id
+  name    = ""
+  type    = "TXT"
+  ttl     = 60 * 5
+  records = ["v=spf1 include:spf.messagingengine.com -all"]
+}
+
 module "aws_fastmail_georgewitteman_me" {
   source  = "./modules/aws-fastmail"
   zone_id = aws_route53_zone.georgewitteman_me.zone_id
   dmarc   = "v=DMARC1; p=reject; pct=100; rua=mailto:re+zcrwq1j87mr@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email;"
+}
+
+resource "aws_route53_record" "georgewitteman_me_txt" {
+  zone_id = aws_route53_zone.georgewitteman_me.zone_id
+  name    = ""
+  type    = "TXT"
+  ttl     = 60 * 5
+  records = ["v=spf1 include:spf.messagingengine.com -all"]
 }
 
 module "aws_fastmail_witteman_me" {
@@ -36,22 +52,33 @@ module "aws_fastmail_witteman_me" {
   dmarc   = "v=DMARC1; p=reject; pct=100; rua=mailto:re+etpsv9gfdep@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email;"
 }
 
+resource "aws_route53_record" "witteman_me_txt" {
+  zone_id = aws_route53_zone.witteman_me.zone_id
+  name    = ""
+  type    = "TXT"
+  ttl     = 60 * 5
+  records = [
+    "v=spf1 include:spf.messagingengine.com -all",
+    "google-site-verification=Dgy7CxrBlRf1Ucs5YonfE2m99jkPGh2RUl7BrV7EoD0",
+  ]
+}
+
 module "aws_fastmail_wtmn_net" {
   source  = "./modules/aws-fastmail"
   zone_id = aws_route53_zone.wtmn_net.zone_id
   dmarc   = "v=DMARC1; p=reject; pct=100; rua=mailto:re+lcidla2subz@dmarc.postmarkapp.com,mailto:dmarc_agg@vali.email;"
 }
 
+resource "aws_route53_record" "wtmn_net_txt" {
+  zone_id = aws_route53_zone.wtmn_net.zone_id
+  name    = ""
+  type    = "TXT"
+  ttl     = 60 * 5
+  records = ["v=spf1 include:spf.messagingengine.com -all"]
+}
+
 module "aws_squarespace_marcywitteman_com" {
   source       = "./modules/aws-squarespace"
   zone_id      = aws_route53_zone.marcywitteman_com.zone_id
   verify_cname = "ygcg8lysbebsftxsez6l"
-}
-
-resource "aws_route53_record" "google_workspace_verification" {
-  zone_id = aws_route53_zone.witteman_me.zone_id
-  name    = ""
-  type    = "TXT"
-  ttl     = 3600
-  records = ["google-site-verification=Dgy7CxrBlRf1Ucs5YonfE2m99jkPGh2RUl7BrV7EoD0"]
 }

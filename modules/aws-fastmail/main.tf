@@ -28,15 +28,6 @@ resource "aws_route53_record" "mx" {
   records = ["10 in1-smtp.messagingengine.com", "20 in2-smtp.messagingengine.com"]
 }
 
-resource "aws_route53_record" "spf" {
-  zone_id = var.zone_id
-
-  name    = ""
-  type    = "TXT"
-  ttl     = var.ttl
-  records = ["v=spf1 include:spf.messagingengine.com -all"]
-}
-
 resource "aws_route53_record" "dkim" {
   for_each = toset(local.dkim_hosts)
 
