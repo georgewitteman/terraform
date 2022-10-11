@@ -38,6 +38,16 @@ resource "aws_security_group_rule" "vault_internal_api" {
   self              = true
 }
 
+resource "aws_security_group_rule" "vault_application_lb_inbound" {
+  description              = "Allow load balancer to reach Vault nodes on port 8200"
+  security_group_id        = aws_security_group.vault.id
+  type                     = "ingress"
+  from_port                = 8200
+  to_port                  = 8200
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.vault_lb.id
+}
+
 resource "aws_security_group_rule" "vault_internal_raft" {
   description       = "Allow Vault nodes to communicate on port 8201 for replication traffic, request forwarding, and Raft gossip"
   security_group_id = aws_security_group.vault.id
