@@ -18,6 +18,10 @@ resource "aws_route53_zone" "marcywitteman_com" {
   name = "marcywitteman.com"
 }
 
+locals {
+  spf = "v=spf1 include:spf.messagingengine.com -all"
+}
+
 module "aws_fastmail_georgewitteman_com" {
   source  = "./modules/aws-fastmail"
   zone_id = aws_route53_zone.georgewitteman_com.zone_id
@@ -29,7 +33,7 @@ resource "aws_route53_record" "georgewitteman_com_txt" {
   name    = ""
   type    = "TXT"
   ttl     = 60 * 5
-  records = ["v=spf1 include:spf.messagingengine.com -all"]
+  records = [local.spf]
 }
 
 module "aws_fastmail_georgewitteman_me" {
@@ -43,7 +47,7 @@ resource "aws_route53_record" "georgewitteman_me_txt" {
   name    = ""
   type    = "TXT"
   ttl     = 60 * 5
-  records = ["v=spf1 include:spf.messagingengine.com -all"]
+  records = [local.spf]
 }
 
 module "aws_fastmail_witteman_me" {
@@ -58,7 +62,7 @@ resource "aws_route53_record" "witteman_me_txt" {
   type    = "TXT"
   ttl     = 60 * 5
   records = [
-    "v=spf1 include:spf.messagingengine.com -all",
+    local.spf,
     "google-site-verification=Dgy7CxrBlRf1Ucs5YonfE2m99jkPGh2RUl7BrV7EoD0",
   ]
 }
@@ -74,7 +78,7 @@ resource "aws_route53_record" "wtmn_net_txt" {
   name    = ""
   type    = "TXT"
   ttl     = 60 * 5
-  records = ["v=spf1 include:spf.messagingengine.com -all"]
+  records = [local.spf]
 }
 
 module "aws_squarespace_marcywitteman_com" {
