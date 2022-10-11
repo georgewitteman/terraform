@@ -27,16 +27,18 @@ resource "aws_launch_template" "vault" {
   key_name               = var.ssh_key_name != null ? var.ssh_key_name : null
   vpc_security_group_ids = [aws_security_group.vault.id]
 
-  user_data = templatefile(
-    "${path.module}/templates/install_vault.sh.tpl",
-    {
-      region                = data.aws_region.current.name
-      name                  = var.resource_name_prefix
-      vault_version         = "1.11.4"
-      kms_key_arn           = aws_kms_key.this.arn
-      secrets_manager_arn   = aws_secretsmanager_secret.tls.arn
-      leader_tls_servername = var.fqdn
-    }
+  user_data = base64encode(
+    templatefile(
+      "${path.module}/templates/install_vault.sh.tpl",
+      {
+        region                = data.aws_region.current.name
+        name                  = var.resource_name_prefix
+        vault_version         = "1.11.4"
+        kms_key_arn           = aws_kms_key.this.arn
+        secrets_manager_arn   = aws_secretsmanager_secret.tls.arn
+        leader_tls_servername = var.fqdn
+      }
+    )
   )
 
   block_device_mappings {
