@@ -38,15 +38,6 @@ resource "aws_launch_template" "this" {
     security_groups             = [aws_security_group.this.id]
   }
 
-  block_device_mappings {
-    device_name = "/dev/sda1"
-
-    ebs {
-      volume_size           = 20
-      delete_on_termination = true
-    }
-  }
-
   metadata_options {
     http_endpoint = "enabled"
     http_tokens   = "required"
