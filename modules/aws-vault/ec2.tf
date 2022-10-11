@@ -76,7 +76,11 @@ resource "aws_autoscaling_group" "vault" {
 
   launch_template {
     id      = aws_launch_template.vault.id
-    version = "$Latest"
+    version = aws_launch_template.vault.latest_version
+  }
+
+  instance_refresh {
+    strategy = "Rolling"
   }
 
   tag {
@@ -84,6 +88,7 @@ resource "aws_autoscaling_group" "vault" {
     value               = "${var.resource_name_prefix}-vault-server"
     propagate_at_launch = true
   }
+
   tag {
     key                 = "${var.resource_name_prefix}-vault"
     value               = "server"
