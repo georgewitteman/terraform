@@ -52,5 +52,6 @@ resource "aws_route53_record" "google_workspace_verification" {
   zone_id = aws_route53_zone.witteman_me.zone_id
   name    = ""
   type    = "TXT"
+  ttl     = 3600
   records = ["google-site-verification=Dgy7CxrBlRf1Ucs5YonfE2m99jkPGh2RUl7BrV7EoD0"]
 }

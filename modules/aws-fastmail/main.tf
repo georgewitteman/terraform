@@ -53,6 +53,7 @@ resource "aws_route53_record" "dmarc" {
   zone_id = var.zone_id
   name    = "_dmarc"
   type    = "TXT"
+  ttl     = var.ttl
   records = [var.dmarc]
 }
 
