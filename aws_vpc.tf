@@ -60,7 +60,7 @@ resource "aws_nat_gateway" "this" {
   count = length(aws_eip.nat)
 
   allocation_id = element(aws_eip.nat, count.index).id
-  subnet_id     = element(aws_subnet.private, count.index).id
+  subnet_id     = element(aws_subnet.public, count.index).id
 
   tags = {
     Name = "${local.vpc_name}-${element(local.azs, count.index)}"
