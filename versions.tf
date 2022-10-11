@@ -12,6 +12,10 @@ terraform {
       source  = "integrations/github"
       version = "~> 5.3"
     }
+    tailscale = {
+      source  = "tailscale/tailscale"
+      version = "~> 0.2"
+    }
   }
   required_version = ">= 1"
 }
