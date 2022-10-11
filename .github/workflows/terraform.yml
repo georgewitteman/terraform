@@ -42,6 +42,9 @@ jobs:
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
+        env:
+          DNSIMPLE_ACCOUNT: ${{ secrets.DNSIMPLE_ACCOUNT }}
+          DNSIMPLE_TOKEN: ${{ secrets.DNSIMPLE_TOKEN }}
 
       - name: Terraform Plan
         id: plan
