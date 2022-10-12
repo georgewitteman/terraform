@@ -17,7 +17,9 @@ variable "public_subnet_ids" {
 variable "instance_type" {
   type        = string
   description = "EC2 instance type"
-  default     = "t2.micro"
+
+  # The cheapest instance I could find
+  default = "t3a.nano"
 }
 
 variable "ssh_key_name" {
