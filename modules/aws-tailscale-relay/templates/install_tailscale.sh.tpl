@@ -8,9 +8,6 @@ curl --fail --silent --show-error --location "https://tailscale.com/install.sh" 
 
 export DEBIAN_FRONTEND=noninteractive
 
-apt-get update
-apt-get install --yes awscli
-
 authkey=$(aws secretsmanager get-secret-value --secret-id ${secrets_manager_arn} --region ${region} --output text --query SecretString)
 
 sudo systemctl enable --now tailscaled
