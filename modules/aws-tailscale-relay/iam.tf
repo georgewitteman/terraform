@@ -20,6 +20,26 @@ data "aws_iam_policy_document" "instance_role" {
   }
 }
 
+resource "aws_iam_role_policy" "kms" {
+  name   = "${var.resource_name_prefix}-tailscale-relay-kms"
+  role   = aws_iam_role.instance_role.id
+  policy = data.aws_iam_policy_document.kms.json
+}
+
+data "aws_iam_policy_document" "kms" {
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "kms:DescribeKey",
+      "kms:Encrypt",
+      "kms:Decrypt",
+    ]
+
+    resources = [aws_kms_key.this.arn]
+  }
+}
+
 resource "aws_iam_role_policy" "secrets_manager" {
   name   = "${var.resource_name_prefix}-tailscale-secrets-manager"
   role   = aws_iam_role.instance_role.id
