@@ -31,7 +31,7 @@ variable "lb_certificate_arn" {
 variable "instance_type" {
   type        = string
   description = "EC2 instance type"
-  default     = "t3a.nano"
+  default     = "t2.micro"
 }
 
 variable "ssh_key_name" {
