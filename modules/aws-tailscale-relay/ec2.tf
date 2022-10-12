@@ -32,6 +32,10 @@ resource "aws_launch_template" "this" {
     )
   )
 
+  private_dns_name_options {
+    hostname_type = "resource-name"
+  }
+
   network_interfaces {
     associate_public_ip_address = true
     delete_on_termination       = true
