@@ -101,3 +101,29 @@ jobs:
           DNSIMPLE_TOKEN: ${{ secrets.DNSIMPLE_TOKEN }}
           TAILSCALE_API_KEY: ${{ secrets.TAILSCALE_API_KEY }}
           TAILSCALE_TAILNET: ${{ secrets.TAILSCALE_TAILNET }}
+  tflint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - uses: actions/cache@v2
+        name: Cache plugin dir
+        with:
+          path: ~/.tflint.d/plugins
+        key: tflint-${{ hashFiles('.tflint.hcl') }}
+
+      - uses: terraform-linters/setup-tflint
+        name: Setup TFLint
+
+      - run: tflint --init
+
+      # setup-tflint supports Problem Matchers for --format compact. You can see
+      # annotations in pull requests when TFLint prints issues with the compact
+      # format.
+      - run: tflint --format compact --module
+
+      - run: |
+          for module in ./modules/*; do
+            tflint --format compact --module "$module"
+          done
