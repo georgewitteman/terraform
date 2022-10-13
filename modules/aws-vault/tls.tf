@@ -12,7 +12,7 @@ resource "tls_self_signed_cert" "ca" {
     common_name = "ca.vault.server.com"
   }
 
-  validity_period_hours = 720 # 30 days
+  validity_period_hours = 365 * 24
 
   allowed_uses = [
     "cert_signing",
@@ -20,10 +20,6 @@ resource "tls_self_signed_cert" "ca" {
   ]
 
   is_ca_certificate = true
-
-  #  provisioner "local-exec" {
-  #    command = "echo '${tls_self_signed_cert.ca.cert_pem}' > ./vault-ca.pem"
-  #  }
 }
 
 # Generate another private key. This one will be used
@@ -31,10 +27,6 @@ resource "tls_self_signed_cert" "ca" {
 resource "tls_private_key" "server" {
   algorithm = "RSA"
   rsa_bits  = 2048
-
-  #  provisioner "local-exec" {
-  #    command = "echo '${tls_private_key.server.private_key_pem}' > ./vault-key.pem"
-  #  }
 }
 
 resource "tls_cert_request" "server" {
@@ -59,7 +51,7 @@ resource "tls_locally_signed_cert" "server" {
   ca_private_key_pem = tls_private_key.ca.private_key_pem
   ca_cert_pem        = tls_self_signed_cert.ca.cert_pem
 
-  validity_period_hours = 720 # 30 days
+  validity_period_hours = 365 * 24
 
   allowed_uses = [
     "client_auth",
@@ -68,10 +60,6 @@ resource "tls_locally_signed_cert" "server" {
     "key_encipherment",
     "server_auth",
   ]
-
-  #  provisioner "local-exec" {
-  #    command = "echo '${tls_locally_signed_cert.server.cert_pem}' > ./vault-crt.pem"
-  #  }
 }
 
 locals {
