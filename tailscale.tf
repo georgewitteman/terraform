@@ -35,11 +35,11 @@ resource "tailscale_acl" "sample_acl" {
       }
     ],
     tagOwners = {
-      local.relay_tag = ["autogroup:members"]
+      (local.relay_tag) = ["autogroup:members"]
     },
     autoApprovers = {
       routes = {
-        aws_vpc.this.cidr_block = [local.relay_tag]
+        (aws_vpc.this.cidr_block) = [local.relay_tag]
       }
     }
   })
