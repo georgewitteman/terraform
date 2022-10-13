@@ -31,7 +31,7 @@ resource "aws_launch_template" "vault" {
 
   user_data = base64encode(
     templatefile(
-      "${path.module}/templates/install_vault.sh.tpl",
+      "${path.module}/templates/install_vault.sh.tftpl",
       {
         region                = data.aws_region.current.name
         name                  = var.resource_name_prefix

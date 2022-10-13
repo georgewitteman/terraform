@@ -23,7 +23,7 @@ resource "aws_launch_template" "this" {
 
   user_data = base64encode(
     templatefile(
-      "${path.module}/templates/install_tailscale.sh.tpl",
+      "${path.module}/templates/install_tailscale.sh.tftpl",
       {
         cidr                = data.aws_vpc.selected.cidr_block
         secrets_manager_arn = aws_secretsmanager_secret.authkey.arn
