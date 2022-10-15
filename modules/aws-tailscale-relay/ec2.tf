@@ -26,6 +26,7 @@ resource "aws_launch_template" "this" {
       "${path.module}/templates/install_tailscale.sh.tftpl",
       {
         cidr                = data.aws_vpc.selected.cidr_block
+        ipv6_cidr           = data.aws_vpc.selected.ipv6_cidr_block
         secrets_manager_arn = aws_secretsmanager_secret.authkey.arn
         region              = data.aws_region.current.name
       }
