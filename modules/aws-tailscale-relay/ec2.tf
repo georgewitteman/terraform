@@ -37,6 +37,7 @@ resource "aws_launch_template" "this" {
   }
 
   network_interfaces {
+    ipv6_address_count          = 1
     associate_public_ip_address = true
     delete_on_termination       = true
     security_groups             = [aws_security_group.this.id]
