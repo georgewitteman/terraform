@@ -9,7 +9,8 @@ locals {
 }
 
 resource "aws_vpc" "this" {
-  cidr_block = local.vpc_cidr
+  cidr_block                       = local.vpc_cidr
+  assign_generated_ipv6_cidr_block = true
 
   tags = {
     Name = local.vpc_name
@@ -67,6 +68,14 @@ resource "aws_nat_gateway" "this" {
   }
 }
 
+resource "aws_egress_only_internet_gateway" "this" {
+  vpc_id = aws_vpc.this.id
+
+  tags = {
+    Name = local.vpc_name
+  }
+}
+
 resource "aws_route" "private_nat_gateway" {
   count = length(aws_nat_gateway.this)
 
@@ -75,10 +84,24 @@ resource "aws_route" "private_nat_gateway" {
   nat_gateway_id         = element(aws_nat_gateway.this, count.index).id
 }
 
+resource "aws_route" "private_egress_only_gateway" {
+  count = length(aws_route_table.private)
+
+  route_table_id              = element(aws_route_table.private, count.index).id
+  destination_ipv6_cidr_block = "::/0"
+  egress_only_gateway_id      = aws_egress_only_internet_gateway.this.id
+}
+
 resource "aws_route" "public_internet_gateway" {
   route_table_id         = aws_route_table.public.id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.this.id
+}
+
+resource "aws_route" "public_internet_gateway_ipv6" {
+  route_table_id              = aws_route_table.public.id
+  destination_ipv6_cidr_block = "::/0"
+  gateway_id                  = aws_internet_gateway.this.id
 }
 
 resource "aws_route_table" "private" {
