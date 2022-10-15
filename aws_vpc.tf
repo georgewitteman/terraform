@@ -6,6 +6,9 @@ locals {
   azs             = ["us-east-1a", "us-east-1b", "us-east-1c"]
   private_subnets = cidrsubnets(cidrsubnet(local.vpc_cidr, 4, 1), 4, 4, 4)
   public_subnets  = cidrsubnets(cidrsubnet(local.vpc_cidr, 4, 0), 4, 4, 4)
+
+  private_subnet_ipv6_prefixes = [0, 1, 2]
+  public_subnet_ipv6_prefixes  = [3, 4, 5]
 }
 
 resource "aws_vpc" "this" {
@@ -40,6 +43,12 @@ resource "aws_subnet" "private" {
   availability_zone = element(local.azs, count.index)
   cidr_block        = element(local.private_subnets, count.index)
 
+  ipv6_cidr_block = cidrsubnet(
+    aws_vpc.this.ipv6_cidr_block,
+    8,
+    local.private_subnet_ipv6_prefixes[count.index],
+  )
+
   tags = {
     Name = "${local.vpc_name}-private-${element(local.azs, count.index)}"
   }
@@ -51,6 +60,12 @@ resource "aws_subnet" "public" {
   vpc_id            = aws_vpc.this.id
   availability_zone = element(local.azs, count.index)
   cidr_block        = element(local.public_subnets, count.index)
+
+  ipv6_cidr_block = cidrsubnet(
+    aws_vpc.this.ipv6_cidr_block,
+    8,
+    local.public_subnet_ipv6_prefixes[count.index],
+  )
 
   tags = {
     Name = "${local.vpc_name}-public-${element(local.azs, count.index)}"
