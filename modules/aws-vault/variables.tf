@@ -39,3 +39,8 @@ variable "ssh_key_name" {
   description = "key pair to use for SSH access to instance"
   default     = null
 }
+
+variable "hosted_zone_id" {
+  description = "The ID of the hosted zone"
+  type        = string
+}

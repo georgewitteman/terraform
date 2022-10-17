@@ -8,12 +8,5 @@ module "vault" {
   lb_subnet_ids        = aws_subnet.private[*].id
   vault_subnet_ids     = aws_subnet.private[*].id
   ssh_key_name         = aws_key_pair.georgewitteman.key_name
-}
-
-resource "aws_route53_record" "vault" {
-  zone_id = aws_route53_zone.witteman_test_com.zone_id
-  name    = "vault"
-  type    = "CNAME"
-  ttl     = 60
-  records = [module.vault.lb_dns_name]
+  hosted_zone_id       = aws_route53_zone.witteman_test_com.zone_id
 }
