@@ -22,6 +22,10 @@ resource "aws_route53_zone" "wtmn_net" {
   name = "wtmn.net"
 }
 
+resource "aws_route53_zone" "wtmn_link" {
+  name = "wtmn.link"
+}
+
 resource "aws_route53_zone" "marcywitteman_com" {
   name = "marcywitteman.com"
 }
@@ -93,4 +97,9 @@ module "aws_squarespace_marcywitteman_com" {
   source       = "./modules/aws-squarespace"
   zone_id      = aws_route53_zone.marcywitteman_com.zone_id
   verify_cname = "ygcg8lysbebsftxsez6l"
+}
+
+module "aws_short_io_wtmn_link" {
+  source  = "./modules/aws-short-io"
+  zone_id = aws_route53_zone.wtmn_link.zone_id
 }
