@@ -48,6 +48,12 @@ resource "aws_route53_record" "georgewitteman_com_txt" {
   records = [local.spf]
 }
 
+module "aws_github_pages_georgewitteman_com" {
+  source       = "./modules/aws-github-pages"
+  zone_id      = aws_route53_zone.georgewitteman_com.zone_id
+  gh_pages_url = "georgewitteman.github.io"
+}
+
 module "aws_fastmail_georgewitteman_me" {
   source  = "./modules/aws-fastmail"
   zone_id = aws_route53_zone.georgewitteman_me.zone_id
