@@ -24,10 +24,11 @@ resource "aws_vpc" "this" {
 }
 
 resource "aws_subnet" "public" {
-  count = length(local.public_cidr)
+  count = length(local.public_subnets)
 
   vpc_id            = aws_vpc.this.id
   availability_zone = element(local.azs, count.index)
+  ipv6_cidr_block   = element(local.public_subnets, count.index)
   ipv6_native       = true
 
   tags = {
@@ -36,10 +37,11 @@ resource "aws_subnet" "public" {
 }
 
 resource "aws_subnet" "private" {
-  count = length(local.private_cidr)
+  count = length(local.private_subnets)
 
   vpc_id            = aws_vpc.this.id
   availability_zone = element(local.azs, count.index)
+  ipv6_cidr_block   = element(local.private_subnets, count.index)
   ipv6_native       = true
 
   tags = {
