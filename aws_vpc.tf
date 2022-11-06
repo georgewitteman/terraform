@@ -16,7 +16,7 @@ locals {
   azs = sort(data.aws_availability_zones.available.names)
 }
 
-resource "aws_vpc" "main" {
+resource "aws_vpc" "this" {
   cidr_block = local.vpc_cidr
 
   tags = {
