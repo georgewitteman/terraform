@@ -31,7 +31,8 @@ resource "aws_subnet" "public" {
   ipv6_cidr_block   = element(local.public_subnets, count.index)
   ipv6_native       = true
 
-  assign_ipv6_address_on_creation = true
+  assign_ipv6_address_on_creation                = true
+  enable_resource_name_dns_aaaa_record_on_launch = true
 
   tags = {
     Name = "${local.vpc_name}-public-${element(local.azs, count.index)}"
@@ -46,7 +47,8 @@ resource "aws_subnet" "private" {
   ipv6_cidr_block   = element(local.private_subnets, count.index)
   ipv6_native       = true
 
-  assign_ipv6_address_on_creation = true
+  assign_ipv6_address_on_creation                = true
+  enable_resource_name_dns_aaaa_record_on_launch = true
 
   tags = {
     Name = "${local.vpc_name}-private-${element(local.azs, count.index)}"
