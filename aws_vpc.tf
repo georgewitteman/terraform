@@ -29,7 +29,7 @@ resource "aws_subnet" "public" {
 
   vpc_id            = aws_vpc.this.id
   availability_zone = element(local.azs, count.index)
-  ipv6_native = true
+  ipv6_native       = true
 
   tags = {
     Name = "${local.vpc_name}-public-${element(local.azs, count.index)}"
@@ -41,7 +41,7 @@ resource "aws_subnet" "private" {
 
   vpc_id            = aws_vpc.this.id
   availability_zone = element(local.azs, count.index)
-  ipv6_native = true
+  ipv6_native       = true
 
   tags = {
     Name = "${local.vpc_name}-private-${element(local.azs, count.index)}"
