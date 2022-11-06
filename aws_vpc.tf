@@ -10,8 +10,8 @@ locals {
   vpc_cidr = cidrsubnet("10.0.0.0/8", 8, 0)
 
   # The next bit determines whether its a public or private subnet
-  private_cidr = cidrsubnet(local.vpc_cidr, 1, 0) # /17
-  public_cidr  = cidrsubnet(local.vpc_cidr, 1, 1) # /17
+  public_cidr  = cidrsubnet(local.vpc_cidr, 1, 0) # /17
+  private_cidr = cidrsubnet(local.vpc_cidr, 1, 1) # /17
 
   azs = sort(data.aws_availability_zones.available.names)
 }
@@ -25,7 +25,7 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "public" {
-  count = length(local.private_subnets)
+  count = length(local.public_cidr)
 
   vpc_id            = aws_vpc.this.id
   availability_zone = element(local.azs, count.index)
@@ -37,7 +37,7 @@ resource "aws_subnet" "public" {
 }
 
 resource "aws_subnet" "private" {
-  count = length(local.private_subnets)
+  count = length(local.private_cidr)
 
   vpc_id            = aws_vpc.this.id
   availability_zone = element(local.azs, count.index)
