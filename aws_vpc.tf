@@ -5,13 +5,10 @@ data "aws_availability_zones" "available" {
 locals {
   vpc_name = "main"
 
-  # Allows 2^8 VPCs. Probably overkill, but it matches AWS's default VPC CIDR
-  # blocks (/16 VPC and /20 subnets)
   vpc_cidr = cidrsubnet("10.0.0.0/8", 8, 0)
 
-  # The next bit determines whether its a public or private subnet
-  public_cidr  = cidrsubnet(local.vpc_cidr, 1, 0) # /17
-  private_cidr = cidrsubnet(local.vpc_cidr, 1, 1) # /17
+  public_subnets  = cidrsubnets(cidrsubnet(aws_vpc.this.ipv6_cidr_block, 1, 0), 7, 7, 7)
+  private_subnets = cidrsubnets(cidrsubnet(aws_vpc.this.ipv6_cidr_block, 1, 1), 7, 7, 7)
 
   azs = sort(data.aws_availability_zones.available.names)
 }
