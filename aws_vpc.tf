@@ -25,7 +25,7 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "public" {
-  count = length(var.public_subnets)
+  count = length(local.private_subnets)
 
   vpc_id            = aws_vpc.this.id
   availability_zone = element(local.azs, count.index)
@@ -37,7 +37,7 @@ resource "aws_subnet" "public" {
 }
 
 resource "aws_subnet" "private" {
-  count = length(var.private_subnets)
+  count = length(local.private_subnets)
 
   vpc_id            = aws_vpc.this.id
   availability_zone = element(local.azs, count.index)
