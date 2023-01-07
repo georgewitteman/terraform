@@ -2,7 +2,6 @@
     "name": "Terraform",
     "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
     "features": {
-        "ghcr.io/devcontainers/features/terraform": {},
-        "ghcr.io/dhoeric/features/terraform-docs": {}
+        "ghcr.io/devcontainers/features/terraform": {}
     }
 }
