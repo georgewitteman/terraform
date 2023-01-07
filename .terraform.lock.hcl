@@ -1,27 +1,6 @@
 # This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
 
-provider "registry.terraform.io/dnsimple/dnsimple" {
-  version = "0.15.0"
-  hashes = [
-    "h1:T2vgAL/dBL23DnTgZy8vdphITW0EFpbuiAZeVbMrjpk=",
-    "zh:222ef00d2bc11da942379eaa25c9aa4b92543c586445f920dae51cc7a87063a2",
-    "zh:2d49a3b471fb94420ac324ed4ba0f2b5d412f8f4c9bd08cead8accbb75b9b5e9",
-    "zh:5ad524cf0931573758c6df25bcfe9d0cf1853e6776a61a1541ca6a17b7d078b1",
-    "zh:70eb5f23d6aeff2e1572fc8fe8e6b18486abbf5ae9fdc6e3391f9f63169a9568",
-    "zh:7444b97569c645c11442e3b58b827b8a464063ae4cb445f23cdba497cd5c2586",
-    "zh:8d752f0bbf9b7fbae14f9a5b02a2b0adc8bf3a53398f1fae6cdf1bb3f8b3a336",
-    "zh:a632b3869a0d632c11b5465a65464be5d9ae67bb31ea1d722d0f1e7a7e133252",
-    "zh:b35030bf50bea15a7fd057359bd1854c74cede23a8528bb04c8628c8709ec493",
-    "zh:b4d36dce6fda80cabe519dcf9976bdf4fd08936cc5c9340f879d357cdd21c9fd",
-    "zh:b83956beb5be619f58c7a08df30c6604bf936285db6d7a22c50234a4f0609be7",
-    "zh:bbf990bbf318a8d82e6d4224e13a3f699df58d17ad30df8939e42ea2215ba307",
-    "zh:be660e9445d8a1326c58ff0ce5cb4d068c451978218041e45a5734ff73f6553b",
-    "zh:bf8c65419db7220568a250088f28504a1c2a28e342d57b110de34e23340a7780",
-    "zh:c9e04e529a75846185457862902322e3287895abca2cd9b8f6f8a4c0f2803553",
-  ]
-}
-
 provider "registry.terraform.io/hashicorp/aws" {
   version     = "4.49.0"
   constraints = "~> 4.0"
