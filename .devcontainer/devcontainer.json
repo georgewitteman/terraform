@@ -4,18 +4,5 @@
     "features": {
         "ghcr.io/devcontainers/features/terraform": {},
         "ghcr.io/dhoeric/features/terraform-docs": {}
-    },
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "hashicorp.terraform"
-            ],
-            "settings": {
-                "terraform.languageServer": {
-                    "enabled": true,
-                    "args": []
-                }
-            }
-        }
     }
 }
