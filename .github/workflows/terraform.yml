@@ -43,8 +43,6 @@ jobs:
         id: validate
         run: terraform validate -no-color
         env:
-          DNSIMPLE_ACCOUNT: ${{ secrets.DNSIMPLE_ACCOUNT }}
-          DNSIMPLE_TOKEN: ${{ secrets.DNSIMPLE_TOKEN }}
           TAILSCALE_API_KEY: ${{ secrets.TAILSCALE_API_KEY }}
           TAILSCALE_TAILNET: ${{ secrets.TAILSCALE_TAILNET }}
 
@@ -54,8 +52,6 @@ jobs:
         run: terraform plan -no-color -input=false
         continue-on-error: true
         env:
-          DNSIMPLE_ACCOUNT: ${{ secrets.DNSIMPLE_ACCOUNT }}
-          DNSIMPLE_TOKEN: ${{ secrets.DNSIMPLE_TOKEN }}
           TAILSCALE_API_KEY: ${{ secrets.TAILSCALE_API_KEY }}
           TAILSCALE_TAILNET: ${{ secrets.TAILSCALE_TAILNET }}
 
@@ -97,8 +93,6 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
         env:
-          DNSIMPLE_ACCOUNT: ${{ secrets.DNSIMPLE_ACCOUNT }}
-          DNSIMPLE_TOKEN: ${{ secrets.DNSIMPLE_TOKEN }}
           TAILSCALE_API_KEY: ${{ secrets.TAILSCALE_API_KEY }}
           TAILSCALE_TAILNET: ${{ secrets.TAILSCALE_TAILNET }}
   tflint:
