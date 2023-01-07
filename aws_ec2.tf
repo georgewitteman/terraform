@@ -1,4 +1,6 @@
 resource "aws_key_pair" "georgewitteman" {
-  key_name   = "georgewitteman-personal"
-  public_key = data.github_user.georgewitteman.ssh_keys[0]
+  count = length(data.github_user.georgewitteman.ssh_keys)
+
+  key_name   = "georgewitteman-personal-${count.index}"
+  public_key = element(data.github_user.georgewitteman.ssh_keys, count.index)
 }
