@@ -95,6 +95,7 @@ jobs:
         env:
           TAILSCALE_API_KEY: ${{ secrets.TAILSCALE_API_KEY }}
           TAILSCALE_TAILNET: ${{ secrets.TAILSCALE_TAILNET }}
+
   tflint:
     runs-on: ubuntu-latest
     steps:
@@ -120,6 +121,8 @@ jobs:
 
       - uses: terraform-linters/setup-tflint@v2
         name: Setup TFLint
+        with:
+          github_token: ${{ github.token }}
 
       - run: tflint --init
 
