@@ -25,22 +25,22 @@ provider "registry.terraform.io/hashicorp/aws" {
 }
 
 provider "registry.terraform.io/hashicorp/dns" {
-  version     = "3.2.3"
+  version     = "3.2.4"
   constraints = "~> 3.2"
   hashes = [
-    "h1:ODcR+vWOhCAJ2iCChZMVdRglNCx07VNr67OPLRPZyDY=",
-    "zh:03a304f4b76ac6c8bebffddcdf555bf77578a7f638948a681589def32e140cb8",
-    "zh:08c7d2498b747054e9c9df7838bfa4e4a6b5d63e2d29f0457247e384f792d56c",
-    "zh:20adf489819ba51ba9d9d15da2dbe1fecb92491b3d0dd80096873e5e84d8b4bd",
-    "zh:2959ff209d2578456ca490672b82864d483b9e9db9efc8e4ffada06e23017609",
-    "zh:3ecd0b22db79550fb1108ff7bd00c4066825e8c23bb64e3cc8d9b8102e8caa45",
-    "zh:6e53a9232245b4be52b56b078f15f270b89afe6abb9c9b8baab4a282fe0cf9f8",
+    "h1:nmem6PLPLfVqwM6ffr4Op1IblLujtJbcaG5fQtL5syI=",
+    "zh:13f1284887be8ebcf279e0e84d685751fbd40bd1f1abbea0ee6ba57bae5bcc4f",
+    "zh:22e7428d6af0cbb2191b17da9406b4cfc110ab2ce57ee818d505dbdc03cab325",
+    "zh:3690ec6483dd879a292592859d38391813d48f2efeceafcc7bae4a0e34cfc9f9",
     "zh:78d5eefdd9e494defcb3c68d282b8f96630502cac21d1ea161f53cfe9bb483b3",
-    "zh:80437bdfa08eb90f70105b52cb06799a8f7967313654b43d28d7f654fcd4edc1",
-    "zh:816ddaca0ecc29e287376e5b0b8b0729ee13f23a9d74bfad5b14b7983e1a1775",
-    "zh:82d8ac7ad00c1a71d0a7c1aca03bb59a6b51128f895242df80b1f3d016c3c51a",
-    "zh:ec9243b8bd80693a6eeeea5d4f7f4e6f57bd44ae796d6d5b1a91790e359f8a61",
-    "zh:fd821adbfb03a2c9eac111ff27a32b3a5523b18f80333008de85482d3bbea645",
+    "zh:8a9b713c80e5fa288bd4a942974307c835c434c2370a600977abbc7e3b71fbc4",
+    "zh:96a033b54ec602b6daa669d4913d33ed9ad5751fafce5ec94df6c2accaa93ba5",
+    "zh:cc64dd880e91a32e112a0a030240f096606162da74e3a8e454c0f31553080bfd",
+    "zh:db30eb45ad3c295c953d8c6063354d9c3c97b7b208ae4cf8b454b4ea973c577d",
+    "zh:dfe060ccd4d1ea363227e9b19b87a024e75d7a1f4f5147bf367b2f5991b9667c",
+    "zh:f290a90e9130204bb01557a842232496c2ab0de9aa3de32fc21125d35333486b",
+    "zh:f688e49913c21d14765558b239a236d2cc7c7dd10c77b78e3dc1767cbd4e94ef",
+    "zh:fb34249421e6fd4d364518f657811e752f38d7bc234f17c0b3cb704e6f1b0057",
   ]
 }
 
