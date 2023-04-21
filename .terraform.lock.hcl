@@ -25,22 +25,22 @@ provider "registry.terraform.io/hashicorp/aws" {
 }
 
 provider "registry.terraform.io/hashicorp/dns" {
-  version     = "3.3.0"
+  version     = "3.3.1"
   constraints = "~> 3.2"
   hashes = [
-    "h1:zcxcKPPpFIvDT0MrBOJkZjYIzR5jT4nIOD9919mR3b4=",
-    "zh:2e05a14e73bdc4b98dda0e20586567a3527320c210699020a28d03934298013d",
-    "zh:5c61d97feee0ca6ccc5ae3bb9fbb2d25cb7aa394ee39b32fde3a3bde929e60f7",
-    "zh:620b6480fd2249840e9c144f3567ebc84b2009587af1f45db8a8563387804772",
+    "h1:g6fufNYaNh77DzH8kX1chvvcAORIWauZLgw6StmuE2Y=",
+    "zh:0ec86eb51683e8d8ef8c0982058a43dc6b84d75cc5cd7f1fd70d7fe260cb37cc",
+    "zh:19abc3f5568ebfe3488914535dcfa9e72c2a3f07ab2d95d98f06b35e3b6f873f",
+    "zh:3d0c95a8d6153f5c6757cdcbaa85eea9b673358ec220690703c78632e7f73837",
+    "zh:5262c6dd0aa4f66ae548361d9a31b260cb174194d8b746ae925bc3c6cb46e3fb",
+    "zh:550f10ca73f159f3eb0e605d8f31fcdacd0557c9083fec63a2a128be9e08983a",
+    "zh:787c652519d3b65cf399be732823ab4d420f32ebfdcd81d5f4f1b73cada0ed92",
     "zh:78d5eefdd9e494defcb3c68d282b8f96630502cac21d1ea161f53cfe9bb483b3",
-    "zh:8b820880dc6d8fb5b5b5bcc425f8e12ac34ceb449d6bf85d7c0015f80c4fc75a",
-    "zh:a7d8023591989a2a5e4bf83a6ebadfbce1172fb5f3f7f488888a330615ca994a",
-    "zh:bcfc1759ab95664ab7378d22c23ebd6cfed70251a7e458b0a19d8bc59d9cef49",
-    "zh:da77d4aeadcd87c591647669991cf4780819eb0ef587ab67a5a5be500727a216",
-    "zh:daf57dbef4d945a1e38307c878fcea5d8101ddb424dea7d0eb5dfb70f0ab2ca4",
-    "zh:ec7bb0cb7b433f1af4bdbbe53ae3677f24ef23827666d5dab4f0cda60e1eae7f",
-    "zh:f7950d155765b16c8e6e03641c3b39bc2f0e9b716ba622b0ae0a6141c05a0b44",
-    "zh:fdecab969249906473e456b0f9ae1e2d75089b4f0b28b44f86f05c7b7dd9b978",
+    "zh:9989d4f739e3a01487f71398123a784fc158c17f96ab37502b39d18ad06f686d",
+    "zh:a93aba5c9f5d335fdf97e95b6d0ae2e06c6a206473a600c89cffac4929d0dcb8",
+    "zh:b2d8b5b8399efdf3088c2df5c32ea8dfc4db44bb331ef923b4cb1e128c2a1ea5",
+    "zh:f6c570d4c3731be7e17b1f03c537167339158d22b356678dd5ab72645a957598",
+    "zh:fc4f206e88062b91ddf0d4067df672e8464642486cf72f956c3915134feed213",
   ]
 }
 
