@@ -25,22 +25,22 @@ provider "registry.terraform.io/hashicorp/aws" {
 }
 
 provider "registry.terraform.io/hashicorp/dns" {
-  version     = "3.3.1"
+  version     = "3.3.2"
   constraints = "~> 3.2"
   hashes = [
-    "h1:g6fufNYaNh77DzH8kX1chvvcAORIWauZLgw6StmuE2Y=",
-    "zh:0ec86eb51683e8d8ef8c0982058a43dc6b84d75cc5cd7f1fd70d7fe260cb37cc",
-    "zh:19abc3f5568ebfe3488914535dcfa9e72c2a3f07ab2d95d98f06b35e3b6f873f",
-    "zh:3d0c95a8d6153f5c6757cdcbaa85eea9b673358ec220690703c78632e7f73837",
-    "zh:5262c6dd0aa4f66ae548361d9a31b260cb174194d8b746ae925bc3c6cb46e3fb",
-    "zh:550f10ca73f159f3eb0e605d8f31fcdacd0557c9083fec63a2a128be9e08983a",
-    "zh:787c652519d3b65cf399be732823ab4d420f32ebfdcd81d5f4f1b73cada0ed92",
+    "h1:HjskPLRqmCw8Q/kiSuzti3iJBSpcAvcBFdlwFFQuoDE=",
+    "zh:05d2d50e301318362a4a82e6b7a9734ace07bc01abaaa649c566baf98814755f",
+    "zh:1e9fd1c3bfdda777e83e42831dd45b7b9e794250a0f351e5fd39762e8a0fe15b",
+    "zh:40e715fc7a2ede21f919567249b613844692c2f8a64f93ee64e5b68bae7ac2a2",
+    "zh:454d7aa83000a6e2ba7a7bfde4bcf5d7ed36298b22d760995ca5738ab02ee468",
+    "zh:46124ded51b4153ad90f12b0305fdbe0c23261b9669aa58a94a31c9cca2f4b19",
+    "zh:55a4f13d20f73534515a6b05701abdbfc54f4e375ba25b2dffa12afdad20e49d",
     "zh:78d5eefdd9e494defcb3c68d282b8f96630502cac21d1ea161f53cfe9bb483b3",
-    "zh:9989d4f739e3a01487f71398123a784fc158c17f96ab37502b39d18ad06f686d",
-    "zh:a93aba5c9f5d335fdf97e95b6d0ae2e06c6a206473a600c89cffac4929d0dcb8",
-    "zh:b2d8b5b8399efdf3088c2df5c32ea8dfc4db44bb331ef923b4cb1e128c2a1ea5",
-    "zh:f6c570d4c3731be7e17b1f03c537167339158d22b356678dd5ab72645a957598",
-    "zh:fc4f206e88062b91ddf0d4067df672e8464642486cf72f956c3915134feed213",
+    "zh:7903b1ceb8211e2b8c79290e2e70906a4b88f4fba71c900eb3a425ce12f1716a",
+    "zh:b79fc4f444ef7a2fd7111a80428c070ad824f43a681699e99ab7f83074dfedbd",
+    "zh:ca9f45e0c4cb94e7d62536c226024afef3018b1de84f1ea4608b51bcd497a2a0",
+    "zh:ddc8bd894559d7d176e0ceb0bb1ae266519b01b315362ebfee8327bb7e7e5fa8",
+    "zh:e77334c0794ef8f9354b10e606040f6b0b67b373f5ff1db65bddcdd4569b428b",
   ]
 }
 
