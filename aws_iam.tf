@@ -23,12 +23,12 @@ data "aws_iam_policy_document" "github_oidc" {
       "sts:AssumeRoleWithWebIdentity"
     ]
 
-    # Restrict access to the georgewitteman/terraform repository.
+    # Restrict access to the georgewitteman/terraform and georgewitteman/website repositories.
     condition {
       test = "StringLike"
       # sub: subject
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:georgewitteman/terraform*"]
+      values   = ["repo:georgewitteman/terraform*", "repo:georgewitteman/website*"]
     }
 
     # The below conditions are probably unnecessary. They're copied from
