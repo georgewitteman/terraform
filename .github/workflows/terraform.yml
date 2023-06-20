@@ -133,5 +133,5 @@ jobs:
 
       - run: |
           for module in ./modules/*; do
-            tflint --format compact --module "$module"
+            tflint --format compact --module --chdir "$module"
           done
